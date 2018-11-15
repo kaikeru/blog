@@ -1,0 +1,8 @@
+baseURL = "https://kaikeru.com"
+languageCode = "en-us"
+title = "Kaikeru"
+theme = "ananke"
+
+[author]
+  homepage = "https://github.com/kaikeru"
+  name = "Kyle Wagner"
