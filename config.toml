@@ -1,4 +1,4 @@
-baseURL = "https://kaikeru.com"
+baseURL = "https://kaikeru.github.io"
 languageCode = "en-us"
 title = "Kaikeru"
 theme = "ananke"
