@@ -9,7 +9,7 @@ theme = "minimal"
 
 [params]
   author = "Calin Tataru"
-  description = "Kyle Wagner personal blog"
+  description = "Kyle Wagner - Thoughts on happiness"
   githubUsername = "kaikeru"
   accent = "#333"
   showBorder = true
@@ -28,6 +28,11 @@ theme = "minimal"
   url = "/post/"
   name = "Posts"
   weight = 2
+
+[[menu.main]]
+  url = "http://nihongo.kaikeru.com"
+  name = "Japanese Tools"
+  weight = 3
 
 # Social icons to be shown on the right-hand side of the navigation bar
 # The "name" field should match the name of the icon to be used
