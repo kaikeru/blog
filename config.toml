@@ -1,6 +1,9 @@
+# Description : The config for Hugo using the minmal theme.
+# Author      : Kyle Wagner
+
 baseURL = "https://kaikeru.github.io"
 languageCode = "en-us"
-title = "Kaikeru"
+title = "kaikeru"
 theme = "minimal"
 
 [author]
@@ -8,8 +11,8 @@ theme = "minimal"
   name = "Kyle Wagner"
 
 [params]
-  author = "Calin Tataru"
-  description = "Kyle Wagner - Thoughts on happiness"
+  author = "Kyle Wagner"
+  description = "Thoughts on happiness"
   githubUsername = "kaikeru"
   accent = "#333"
   showBorder = true
@@ -17,7 +20,7 @@ theme = "minimal"
   font = "Raleway" # should match the name on Google Fonts!
   highlight = true
   highlightStyle = "solarized-dark"
-  highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
+  highlightLanguages = ["java", "python", "yaml"]
 
 [[menu.main]]
   url = "/"
@@ -30,9 +33,14 @@ theme = "minimal"
   weight = 2
 
 [[menu.main]]
-  url = "http://nihongo.kaikeru.com"
-  name = "Japanese Tools"
+  url = "/project/"
+  name = "Projects"
   weight = 3
+
+[[menu.main]]
+  url = "/resume/"
+  name = "Resume"
+  weight = 4
 
 # Social icons to be shown on the right-hand side of the navigation bar
 # The "name" field should match the name of the icon to be used
