@@ -2,10 +2,10 @@
 title: "Free Website Hosting with Github and DevOps"
 date: 2018-12-28
 tags: ["azure pipelines", "github", "hugo", "devops"]
-draft: true
+draft: false
 ---
 
-Paying for webiste hosting is passé. You can easily host with Wordpress, Tumblr, or many other solutions. The downside to these free hosted services (applications, really) is  free means you're the product one way or another. Maybe they put adds on your blog, maybe they sell your data. Also, what happens if that company goes under? Where does your corner of the internet go?
+Paying for website hosting is passé. You can easily host with Wordpress, Tumblr, or many other solutions. The downside to these free hosted services (applications, really) is  free means you're the product one way or another. Maybe they put adds on your blog, maybe they sell your data. Also, what happens if that company goes under? Where does your corner of the internet go?
 
 I'm a proponent of not relying on other services to build my content if I can help it. I want to build my site so if any service I rely on goes under, I can shift to a new service with minimal fuss. It is more work, but the payoff is worth it to have a permanent home on the internet.
 
