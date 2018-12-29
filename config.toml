@@ -1,7 +1,7 @@
 # Description : The config for Hugo using the minmal theme.
 # Author      : Kyle Wagner
 
-baseURL = "https://kaikeru.github.io"
+baseURL = "https://blog.kaikeru.com/"
 languageCode = "en-us"
 title = "kaikeru"
 theme = "minimal"
