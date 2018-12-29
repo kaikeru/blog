@@ -5,6 +5,7 @@ baseURL = "https://kaikeru.github.io"
 languageCode = "en-us"
 title = "kaikeru"
 theme = "minimal"
+enableRobotsTXT = true
 
 [author]
   homepage = "https://github.com/kaikeru"
@@ -14,13 +15,13 @@ theme = "minimal"
   author = "Kyle Wagner"
   description = "Thoughts on happiness"
   githubUsername = "kaikeru"
-  accent = "#333"
+  accent = "#2A603B"
   showBorder = true
   backgroundColor = "white"
   font = "Raleway" # should match the name on Google Fonts!
   highlight = true
-  highlightStyle = "solarized-dark"
-  highlightLanguages = ["java", "python", "yaml"]
+  highlightStyle = "atom-one-dark"
+  highlightLanguages = ["java", "python", "yaml", "bash"]
 
 [[menu.main]]
   url = "/"
@@ -60,3 +61,7 @@ theme = "minimal"
     url = "https://www.linkedin.com/in/kaikeru/"
     name = "linkedin"
     weight = 3
+[[menu.icon]]
+    url = "/post/index.xml"
+    name = "rss"
+    weight = 4
