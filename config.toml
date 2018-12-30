@@ -61,7 +61,3 @@ enableRobotsTXT = true
     url = "https://www.linkedin.com/in/kaikeru/"
     name = "linkedin"
     weight = 3
-[[menu.icon]]
-    url = "/post/index.xml"
-    name = "rss"
-    weight = 4
