@@ -8,7 +8,7 @@ draft: false
 In my current position, we define continuous integration builds for all our projects in a `Dockerfile`. For us, Docker provides a set of guarantees that are perfect for CI.
 
 * Docker builds are reproducible.
-* Docker is runnable on any system that supports Docker.
+* Docker is available on every major OS.
 * Docker produces universal artifacts.
 
 ## Builds are Reproducible Everywhere
@@ -17,7 +17,7 @@ A standard Jenkins build runs directly on the system. It's nothing against Jenki
 
 The ideal state of our build is "reproducible state". A successful build that is rerun should succeed with the same output. A build that changes between runs of the same git commit and no upstream changes means someone (or an upstream) messed up. This is the beauty of Docker builds, they are immutable unless you try really hard. The steps in a `Dockerfile` run in the same order every time. Wonderful.
 
-The biggest boon is the system that runs the build doesn't care what language or packages a build needs. The Docker build handles that via `Dockerfile` instead at the encompassing OS. There are no tricks to create virtual environments like in Python. No race conditions on which packages are installed by different builds. Everything is self contained and it's all way faster than spinning up a fresh dedicated VM.
+The biggest boon is the system that runs the build doesn't care what language or packages a build needs. The Docker build handles that via `Dockerfile` instead at the encompassing OS. There are no tricks to create virtual environments like in Python. No race conditions on which packages are installed by different builds. Everything is self contained and way faster than spinning up a fresh dedicated VM.
 
 The glaring question one may ask, "Why not use the already built in Docker runner environments that CI solutions like Jenkins support?" Yes, that's a solution, but it doesn't solve another problem.
 
@@ -69,13 +69,13 @@ FROM openjdk as builder
 RUN mkdir /app
 WORKDIR /app
 
-
 COPY --from lib mavencache/* mavencache/*
 COPY ./src/* /app/src
+
 RUN mvn build
 ```
 
-In this case, the multi-stage build is basically a glorified maven cache. The beauty of this, though, is that all language builds support this type of artifact storage. No matter if you're building C++ or Python, this technique works. You get the benefits of tagging, and version control via a Docker repo.
+In this case, the multi-stage build is basically a glorified Maven cache. The beauty of this, though, is that all language builds support this type of artifact storage. No matter if you're building C++ or Python, this technique works. You get the benefits of tagging, and version control via a Docker repo.
 
 ## The Downsides
 
