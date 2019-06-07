@@ -6,6 +6,7 @@ languageCode = "en-us"
 title = "kaikeru"
 theme = "minimal"
 enableRobotsTXT = true
+googleAnalytics = "UA-81904592-1"
 
 [author]
   homepage = "https://github.com/kaikeru"
@@ -22,7 +23,6 @@ enableRobotsTXT = true
   highlight = true
   highlightStyle = "atom-one-dark"
   highlightLanguages = ["java", "python", "yaml", "bash", "dockerfile"]
-
 [[menu.main]]
   url = "/"
   name = "Home"
