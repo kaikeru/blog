@@ -30,3 +30,9 @@ draft: false
 
 * [The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses](https://amzn.to/2IWpriw) by Eric Ries
 * [Setting the Table: The Transforming Power of Hospitality in Business](https://amzn.to/2FsHdZT) by Danny Meyer
+* [Delivering Happiness: A Path to Profits, Passion, and Purpose](https://amzn.to/2JUmhMQ) by Tony Hsieh
+
+# Life Skills
+
+* [The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change](https://amzn.to/2SwARxL) by Stephen R. Covey
+* [How to Win Friends & Influence People](https://amzn.to/2JS199S) by Dale Carnegie
