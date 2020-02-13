@@ -1,7 +1,7 @@
 # Description : The config for Hugo using the minmal theme.
 # Author      : Kyle Wagner
 
-baseURL = "https://blog.kaikeru.com/"
+baseURL = "https://www.kaikeru.com/"
 languageCode = "en-us"
 title = "kaikeru"
 theme = "minimal"
@@ -14,7 +14,7 @@ googleAnalytics = "UA-81904592-1"
 
 [params]
   author = "Kyle Wagner"
-  description = "Thoughts on happiness"
+  description = "Kyle Wagner"
   githubUsername = "kaikeru"
   accent = "#1cacd7"
   showBorder = true
@@ -58,7 +58,7 @@ googleAnalytics = "UA-81904592-1"
   weight = 1
 
 [[menu.icon]]
-    url = "https://twitter.com/aKyleWagner/"
+    url = "https://twitter.com/aKaikeru/"
     name = "twitter"
     weight = 2
 
