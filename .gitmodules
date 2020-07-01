@@ -1,6 +1,0 @@
-[submodule "themes/minimal"]
-	path = themes/minimal
-	url = https://github.com/kaikeru/minimal
-[submodule "themes/sam"]
-	path = themes/sam
-	url = https://github.com/victoriadotdev/hugo-theme-sam.git
