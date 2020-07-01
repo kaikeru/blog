@@ -1,0 +1,12 @@
+name = "Kaikeru"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+description = ""
+homepage = "http://kaikeru.com/"
+tags = []
+features = []
+min_version = "0.41"
+
+[author]
+  name = "Kyle Wagner"
+  homepage = "https://kaikeru.com"

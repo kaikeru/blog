@@ -1,0 +1,37 @@
+<li class="post">
+    {{ $.Scratch.Set "link" .RelPermalink }}
+    {{ with .Params.link }} {{ $.Scratch.Set "link" . }} {{ end }}
+    {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") | $.Scratch.Set "subtitle" }}
+    {{ with .Description }} {{ $.Scratch.Set "subtitle" . }} {{ end }}
+
+    <h1 class="title"><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h1>
+    <div class="title subtitle heading is-6">
+        <div class="columns is-vcentered">
+            <div class="column">
+                <div class="columns is-vcentered is-mobile">
+                    {{ with .Site.Params.authorImage }}
+                    <div class="column is-narrow">
+                        <img src="{{ . }}" class="author-image">
+                    </div>
+                    {{ end }}
+                    <div class="column">
+                        <p>{{ .Site.Params.Author }}</p>
+                        <p><time>{{ .PublishDate.Format "January 2, 2006" }}</time> | {{ .ReadingTime }}
+                            {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <p>{{ .Summary }}</p>
+        <p><a href="{{ .Scratch.Get "link" }}">Read Full Post...</a></p>
+    </div>
+    {{ if gt .Params.tags 0}}
+    <div class="meta-data">
+        {{ range .Params.tags }}
+        <a class="tag" href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>
+        {{ end }}
+    </div>
+    {{end}}
+</li>

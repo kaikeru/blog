@@ -1,0 +1,36 @@
+.logo h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5em;
+}
+
+.title > a {
+    color: unset;
+    text-decoration: underline;
+}
+
+.title > a:hover {
+    text-decoration: unset;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.max-700px {
+    max-width: 700px;
+}
+
+.max-300px {
+    max-width: 300px;
+}
+
+ul.posts > li.post {
+    padding-bottom: 2em;
+}
+

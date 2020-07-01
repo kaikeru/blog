@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="columns is-centered">
+    <div class="column max-700px">
+        <div class="section">
+            <h1 class="title">{{ .Title }}</h1>
+            <div class="posts">
+                {{ .Content }} {{ range .Pages }}
+                <ul class="posts">
+                    {{ partial "list-item" . }}
+                </ul>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

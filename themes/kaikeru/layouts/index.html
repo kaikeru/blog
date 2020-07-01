@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="columns is-centered">
+    <div class="column max-700px">
+        <section class="section">
+            <ul class="posts">
+                {{ range (.Paginator 5).Pages }} {{ partial "list-item" . }} {{ end }}
+            </ul>
+        </section>
+        <section class="section has-text-centered">
+            {{ partial "pagination" . }}
+        </section>
+    </div>
+</div>
+{{ end }}
