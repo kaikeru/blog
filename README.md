@@ -1,5 +1,5 @@
 # Blog
-The source files used to create the blog @ blog.kaikeru.com.
+The source files used to create the blog @ www.kaikeru.com.
 
 ## Purpose
 The blog uses [Hugo](https://gohugo.io) as its base and serves as the the personal website for Kyle Wagner. This is also an exercise in how to use the free tools available to publish a website with minimal or no overhead cost other than time.
