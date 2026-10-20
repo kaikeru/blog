@@ -1,36 +1,118 @@
-.logo h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 1.5em;
+@font-face { font-family: "Lora"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/lora-400.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/lora-600.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-weight: 400; font-style: italic; font-display: swap; src: url("../fonts/lora-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Caveat"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/caveat-500.woff2") format("woff2"); }
+@font-face { font-family: "Caveat"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/caveat-700.woff2") format("woff2"); }
+
+:root {
+    --paper: #faf8f3;
+    --surface: #fffdf8;
+    --line: #e6dfd0;
+    --rule: #e0d9c9;
+    --ink: #2f2a25;
+    --accent: #4a7a68;
+    --tape-sage: rgba(122, 168, 150, .55);
+    --tape-sand: rgba(214, 170, 120, .55);
+    --tape-rose: rgba(196, 120, 120, .45);
+    --col: 680px;
+    --hand: "Caveat", "Segoe Script", "Bradley Hand", cursive;
+    --serif: "Lora", Georgia, "Times New Roman", serif;
 }
 
-.title > a {
-    color: unset;
-    text-decoration: underline;
-}
-
-.title > a:hover {
-    text-decoration: unset;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+}
+
+a { color: var(--accent); }
+
+/* Page shell: menu | content | empty, content centered in the window */
+.site {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--col)) minmax(0, 1fr);
+    column-gap: 2rem;
     min-height: 100vh;
+    padding: 2.5rem 1rem 1.5rem;
+    align-content: start;
+}
+.side { grid-column: 1; grid-row: 1; align-self: start; position: sticky; top: 2.5rem; font-family: var(--hand); }
+.site > main { grid-column: 2; grid-row: 1; min-width: 0; }
+.foot { grid-column: 2; grid-row: 2; margin-top: 3rem; text-align: center; font-family: var(--hand); font-size: 1.3rem; color: var(--accent); }
+.foot p { margin: 0; }
+
+/* Menu */
+.side .name { display: block; font-size: 2.6rem; font-weight: 700; line-height: 1; color: var(--ink); text-decoration: none; }
+.side .rule { width: 40px; border: 0; border-top: 2px solid var(--accent); margin: .7rem 0 .9rem; }
+.side ul { list-style: none; margin: 0; padding: 0; }
+.side li { position: relative; padding-left: 1.1rem; font-size: 1.5rem; line-height: 1.9; }
+.side a { color: var(--ink); text-decoration: none; }
+.side a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.side a[aria-current="page"] { color: var(--accent); }
+.side a[aria-current="page"]::before { content: "\25B8"; position: absolute; left: 0; }
+.side .social { margin-top: .6rem; }
+.side .social li { font-size: 1.2rem; color: var(--accent); }
+.side .social a { color: var(--accent); }
+
+/* Narrow screens and phones: menu becomes a row above the content */
+@media (max-width: 1100px) {
+    .site { grid-template-columns: minmax(0, var(--col)); justify-content: center; }
+    .side { grid-column: 1; grid-row: 1; position: static; margin-bottom: 2rem; }
+    .site > main { grid-column: 1; grid-row: 2; }
+    .foot { grid-column: 1; grid-row: 3; }
+    .side ul { display: flex; flex-wrap: wrap; column-gap: 1.3rem; }
+    .side li { padding-left: 0; font-size: 1.4rem; line-height: 1.7; }
+    .side a[aria-current="page"]::before { position: static; margin-right: .2rem; }
+    .side .social { margin-top: 0; }
+    .side .rule { display: none; }
 }
 
-main {
-    flex: 1;
+/* The page: one plain sheet with a strip of tape */
+.page {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 2.8rem 3.2rem 2.2rem;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, .1);
 }
-
-.max-700px {
-    max-width: 700px;
+.page::before {
+    content: ""; position: absolute; top: -11px; left: 3.5rem; width: 84px; height: 24px;
+    background: var(--tape-sage); transform: rotate(-2.5deg);
 }
+.page h1 { font-size: 2.1rem; line-height: 1.25; font-weight: 600; margin: .2rem 0 1.4rem; }
+.meta, .tags, .prevnext { font-family: var(--hand); color: var(--accent); }
+.meta { font-size: 1.4rem; line-height: 1.4; margin: 0; }
+.tags { font-size: 1.45rem; margin: 1.8rem 0 0; }
+.tags a { color: var(--accent); text-decoration: none; margin-right: .9rem; }
+.tags a:hover { text-decoration: underline; }
+.prevnext { display: flex; justify-content: space-between; gap: 1rem; font-size: 1.4rem; line-height: 1.3; margin-top: 1.6rem; padding-top: .8rem; border-top: 1px solid var(--rule); }
+.prevnext a { color: var(--accent); text-decoration: none; }
+.prevnext a:hover { text-decoration: underline; }
+.prevnext .later { margin-left: auto; text-align: right; }
 
-.max-300px {
-    max-width: 300px;
+/* Prose inside pages */
+.content > :first-child { margin-top: 0; }
+.content p, .content ul, .content ol, .content blockquote, .content table, .content pre { margin: 0 0 1.1rem; }
+.content h2 { font-size: 1.45rem; line-height: 1.3; font-weight: 600; margin: 2rem 0 .7rem; }
+.content h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 600; margin: 1.6rem 0 .6rem; }
+.content h4 { font-size: 1.05rem; font-weight: 600; margin: 1.4rem 0 .5rem; }
+.content img { max-width: 100%; height: auto; }
+.content hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+.content blockquote { margin-left: 0; padding-left: 1rem; border-left: 3px solid var(--tape-sand); font-style: italic; }
+.content table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.content th, .content td { border: 1px solid var(--line); padding: .35rem .7rem; text-align: left; }
+.content :not(pre) > code { background: #f1ece0; padding: .1em .35em; border-radius: 3px; font-size: .9em; }
+.content pre { background: #282c34; color: #abb2bf; padding: 1rem 1.1rem; border-radius: 3px; overflow-x: auto; font-size: .85rem; line-height: 1.6; }
+.content pre code { background: none; padding: 0; color: inherit; }
+.content .chroma { margin: 0 0 1.1rem; }
+
+@media (max-width: 600px) {
+    .page { padding: 2.2rem 1.2rem 1.6rem; }
+    .page h1 { font-size: 1.7rem; }
+    .page::before { left: 1.4rem; }
 }
-
-ul.posts > li.post {
-    padding-bottom: 2em;
-}
-

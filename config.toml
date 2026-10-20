@@ -14,16 +14,26 @@ enableRobotsTXT = true
 [params]
   author = "Kyle Wagner"
   description = "Blog"
-  font = "Open Sans" # should match the name on Google Fonts!
 
-# [[menu.main]]
-#   url = "/"
-#   name = "Home"
-#   weight = 1
+[[menu.main]]
+  identifier = "entries"
+  url = "/"
+  name = "Entries"
+  weight = 1
 
-# Social icons to be shown on the right-hand side of the navigation bar
-# The "name" field should match the name of the icon to be used
-# The list of available icons can be found at http://fontawesome.io/icons/
+[[menu.main]]
+  identifier = "resume"
+  url = "/resume/"
+  name = "Resume"
+  weight = 2
+
+[[menu.main]]
+  identifier = "reading-list"
+  url = "/reading-list/"
+  name = "Reading List"
+  weight = 3
+
+# Social links shown under the main menu.
 
 [[menu.social]]
   url = "https://github.com/kaikeru/"
