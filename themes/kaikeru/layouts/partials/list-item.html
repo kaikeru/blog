@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="content">
-        <p>{{ .Summary }}</p>
+        <p>{{ .Summary | plainify }}</p>
         <p><a href="{{ .Scratch.Get "link" }}">Read Full Post...</a></p>
     </div>
     {{ if .Params.tags }}
