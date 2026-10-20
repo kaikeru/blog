@@ -1,0 +1,9 @@
+{{ range .Pages.GroupByDate "January 2006" }}
+<section class="month-group">
+    <h2 class="month">{{ .Key }}</h2>
+    <ul class="notes">
+        {{ range .Pages }}{{ partial "list-item.html" . }}{{ end }}
+    </ul>
+</section>
+{{ end }}
+{{ partial "pagination.html" . }}

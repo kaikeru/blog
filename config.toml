@@ -53,3 +53,6 @@ enableRobotsTXT = true
   noClasses = false
   style = "onedark"
 
+[pagination]
+  pagerSize = 24
+
