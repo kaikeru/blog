@@ -28,11 +28,9 @@
         </div>
     </nav>
     <script>
-        $(document).ready(function () {
-            $(".navbar-burger").click(function () {
-                $(".navbar-burger").toggleClass("is-active");
-                $(".navbar-menu").toggleClass("is-active");
-            })
-        })
+        document.querySelector(".navbar-burger").addEventListener("click", function () {
+            this.classList.toggle("is-active");
+            document.querySelector(".navbar-menu").classList.toggle("is-active");
+        });
     </script>
 </header>

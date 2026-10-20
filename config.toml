@@ -1,13 +1,12 @@
-# Description : The config for Hugo using the minmal theme.
+# Description : The config for Hugo using the kaikeru theme.
 # Author      : Kyle Wagner
 
 baseURL = "https://www.kaikeru.com/"
-languageCode = "en-us"
+locale = "en-us"
 title = "kaikeru"
 theme = "kaikeru"
-copyright = "©️2020 - Kyle Wagner"
+copyright = "©️2020 - 2026 Kyle Wagner"
 enableRobotsTXT = true
-googleAnalytics = "UA-81904592-1"
 
 [author]
   name = "Kyle Wagner"
@@ -16,9 +15,6 @@ googleAnalytics = "UA-81904592-1"
   author = "Kyle Wagner"
   description = "Blog"
   font = "Open Sans" # should match the name on Google Fonts!
-  highlight = true
-  highlightStyle = "atom-one-dark"
-  highlightLanguages = ["java", "python", "yaml", "bash", "dockerfile"]
 
 # [[menu.main]]
 #   url = "/"
@@ -35,12 +31,15 @@ googleAnalytics = "UA-81904592-1"
   weight = 1
 
 [[menu.social]]
-    url = "https://twitter.com/aKaikeru/"
-    name = "Twitter"
-    weight = 2
-
-[[menu.social]]
     url = "https://www.linkedin.com/in/kaikeru/"
     name = "Linkedin"
     weight = 3
+
+# Posts contain raw HTML written by the author.
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+  style = "onedark"
 
