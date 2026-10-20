@@ -1,5 +1,5 @@
 <li class="note">
-    <a href="{{ .RelPermalink }}">
+    <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
         <span class="note-meta"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2" }}</time> &middot; {{ .ReadingTime }} min</span>
         <span class="note-title">{{ .Title }}</span>
         <span class="note-excerpt">{{ .Summary | plainify }}</span>

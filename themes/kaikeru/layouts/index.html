@@ -1,4 +1,5 @@
 {{ define "main" }}
+<h1 class="sr-only">{{ .Site.Title }}: entries</h1>
 {{ $posts := where site.RegularPages "Section" "post" }}
 {{ partial "notes.html" (.Paginate $posts) }}
 {{ end }}

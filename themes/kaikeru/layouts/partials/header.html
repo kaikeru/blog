@@ -6,8 +6,8 @@
         <ul>
             {{ range .Site.Menus.main }}
             {{ $isCurrent := eq .URL $current.RelPermalink }}
-            {{ if and (eq .Identifier "entries") (or $current.IsHome (eq $current.Section "post")) }}{{ $isCurrent = true }}{{ end }}
-            <li><a href="{{ .URL }}"{{ if $isCurrent }} aria-current="page"{{ end }}>{{ lower .Name }}</a></li>
+            {{ $isSection := and (eq .Identifier "entries") (not $isCurrent) (eq $current.Section "post") }}
+            <li><a href="{{ .URL }}"{{ if $isCurrent }} aria-current="page"{{ else if $isSection }} aria-current="true"{{ end }}>{{ lower .Name }}</a></li>
             {{ end }}
         </ul>
         <ul class="social">
