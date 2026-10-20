@@ -1,7 +1,7 @@
 # Description : The config for Hugo using the kaikeru theme.
 # Author      : Kyle Wagner
 
-baseURL = "https://www.kaikeru.com/"
+baseURL = "https://kaikeru.com/"
 locale = "en-us"
 title = "kaikeru"
 theme = "kaikeru"
