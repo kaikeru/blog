@@ -1,36 +1,19 @@
-<header>
-    <nav class="navbar" role="navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a href="/" title="home" class="navbar-item">
-                    <span class="logo">
-                        <h1>{{ .Site.Title }}</h1>
-                    </span>
-                </a>
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div class="navbar-menu">
-                <div class="navbar-start">
-                    {{ range .Site.Menus.main }}
-                    <a href="{{ .URL }}" class="navbar-item">{{ .Name }}</a>
-                    {{ end }}
-                    {{ range .Site.Menus.social }}
-                    <a href="{{ .URL }}" class="navbar-item" title="{{ .Name }}"><span
-                            class="icon"><i class='fab fa-{{lower .Name }}'></i></span>
-                        <span class="is-hidden-desktop">{{ .Name }}</span></a>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
+{{ $current := . }}
+<header class="side">
+    <a class="name" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+    <hr class="rule">
+    <nav aria-label="Main">
+        <ul>
+            {{ range .Site.Menus.main }}
+            {{ $isCurrent := eq .URL $current.RelPermalink }}
+            {{ $isSection := and (eq .Identifier "entries") (not $isCurrent) (eq $current.Section "post") }}
+            <li><a href="{{ .URL }}"{{ if $isCurrent }} aria-current="page"{{ else if $isSection }} aria-current="true"{{ end }}>{{ lower .Name }}</a></li>
+            {{ end }}
+        </ul>
+        <ul class="social">
+            {{ range .Site.Menus.social }}
+            <li><a href="{{ .URL }}" rel="me noopener">{{ lower .Name }} <span aria-hidden="true">&#8599;</span></a></li>
+            {{ end }}
+        </ul>
     </nav>
-    <script>
-        document.querySelector(".navbar-burger").addEventListener("click", function () {
-            this.classList.toggle("is-active");
-            document.querySelector(".navbar-menu").classList.toggle("is-active");
-        });
-    </script>
 </header>
