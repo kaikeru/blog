@@ -1,16 +1,5 @@
 {{ define "main" }}
-<div class="columns is-centered">
-    <div class="column max-700px">
-        <div class="section">
-            <h1 class="title">{{ .Title }}</h1>
-            <div class="posts">
-                {{ .Content }} {{ range .Pages }}
-                <ul class="posts">
-                    {{ partial "list-item" . }}
-                </ul>
-                {{ end }}
-            </div>
-        </div>
-    </div>
-</div>
+<h1 class="list-title">{{ .Title }}</h1>
+{{ with .Content }}<div class="content list-intro">{{ . }}</div>{{ end }}
+{{ partial "notes.html" (.Paginate .Pages) }}
 {{ end }}

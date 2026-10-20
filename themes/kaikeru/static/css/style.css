@@ -169,3 +169,23 @@ a { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
     .note, .note:nth-child(n) { transform: none; }
 }
+
+/* List pages */
+.list-title { font-family: var(--hand); font-weight: 700; font-size: 2.6rem; line-height: 1.1; color: var(--ink); margin: 0 0 1.4rem; }
+.list-intro { margin-bottom: 1.6rem; }
+
+/* Keyboard focus */
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.note a:focus-visible { outline-offset: -4px; }
+
+/* 404 link is handwritten */
+.page .meta a { color: var(--accent); text-decoration: none; }
+.page .meta a:hover { text-decoration: underline; }
+
+/* Print: just the page */
+@media print {
+    .side, .foot, .pager { display: none; }
+    .site { display: block; padding: 0; }
+    .page, .note { box-shadow: none; transform: none; }
+    .page::before, .note::before { display: none; }
+}

@@ -1,10 +1,9 @@
 {{ define "main" }}
-<div class="columns is-centered">
-    <div class="column max-700px">
-        <section class="section">
-            <h1 class="title">Page not found</h1>
-            <p><a href="{{ "/" | relURL }}">Back to the blog</a></p>
-        </section>
+<article class="page">
+    <h1>Page not found</h1>
+    <div class="content">
+        <p>This page isn't in the notebook.</p>
     </div>
-</div>
+    <p class="meta"><a href="{{ "/" | relURL }}">&larr; back to the entries</a></p>
+</article>
 {{ end }}
