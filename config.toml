@@ -2,7 +2,7 @@
 # Author      : Kyle Wagner
 
 baseURL = "https://www.kaikeru.com/"
-languageCode = "en-us"
+locale = "en-us"
 title = "kaikeru"
 theme = "kaikeru"
 copyright = "©️2020 - Kyle Wagner"
@@ -43,4 +43,8 @@ googleAnalytics = "UA-81904592-1"
     url = "https://www.linkedin.com/in/kaikeru/"
     name = "Linkedin"
     weight = 3
+
+# Posts contain raw HTML written by the author.
+[markup.goldmark.renderer]
+  unsafe = true
 

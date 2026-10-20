@@ -22,7 +22,7 @@
                         </div>
                         <div class="column">
                             {{ range $idx, $category := .Params.categories }} {{- if ne $idx 0 }}, {{ end }}<a
-                                href="{{ " categories/ " | relURL }}{{ $category | urlize }}">{{ $category }}</a>
+                                href="{{ "categories/" | relURL }}{{ $category | urlize }}">{{ $category }}</a>
                             {{- end }}
                         </div>
                     </div>
@@ -30,10 +30,10 @@
                 <div class="content">
                     {{ .Content }}
                 </div>
-                {{ if gt .Params.tags 0}}
+                {{ if .Params.tags }}
                 <div class="meta-data">
                     {{ range .Params.tags }}
-                    <a class="tag" href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>
+                    <a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
                     {{ end }}
                 </div>
                 {{end}}

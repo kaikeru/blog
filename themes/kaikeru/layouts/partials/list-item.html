@@ -27,10 +27,10 @@
         <p>{{ .Summary }}</p>
         <p><a href="{{ .Scratch.Get "link" }}">Read Full Post...</a></p>
     </div>
-    {{ if gt .Params.tags 0}}
+    {{ if .Params.tags }}
     <div class="meta-data">
         {{ range .Params.tags }}
-        <a class="tag" href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>
+        <a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
         {{ end }}
     </div>
     {{end}}
