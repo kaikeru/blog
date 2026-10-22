@@ -1,0 +1,5 @@
+# Shown in the "currently" sticky note.
+# `reading` is only used if the Goodreads fetch fails; leave it empty to hide the line then.
+reading = ""
+working_on = "this website"
+updated = "Oct 2026"

@@ -3,6 +3,8 @@ name: Deploy blog
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: "17 11 * * *"
   workflow_dispatch:
 
 permissions:

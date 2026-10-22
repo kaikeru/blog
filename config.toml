@@ -19,6 +19,7 @@ capitalizeListTitles = false
 [params]
   author = "Kyle Wagner"
   description = "Blog"
+  goodreadsShelf = "https://www.goodreads.com/review/list_rss/38312672?shelf=currently-reading"
 
 [[menu.main]]
   identifier = "entries"
@@ -46,6 +47,11 @@ capitalizeListTitles = false
   weight = 1
 
 [[menu.social]]
+  url = "https://www.goodreads.com/user/show/38312672-kyle"
+  name = "Goodreads"
+  weight = 2
+
+[[menu.social]]
     url = "https://www.linkedin.com/in/kaikeru/"
     name = "Linkedin"
     weight = 3
@@ -61,3 +67,7 @@ capitalizeListTitles = false
 [pagination]
   pagerSize = 24
 
+
+# Re-fetch remote resources (the Goodreads feed) at most hourly in local rebuilds.
+[caches.getresource]
+  maxAge = "1h"

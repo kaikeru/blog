@@ -1,0 +1,12 @@
+{{ $class := . }}
+{{ $c := partialCached "currently-data.html" site }}
+{{ if or $c.reading $c.working_on }}
+<aside class="currently {{ $class }}" aria-label="Currently">
+    <b class="currently-title">currently</b>
+    {{ with $c.reading }}
+    <span class="currently-line">reading: {{ if .link }}<a href="{{ .link }}" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}{{ with .author }} by {{ . }}{{ end }}</span>
+    {{ end }}
+    {{ with $c.working_on }}<span class="currently-line">working on: {{ . }}</span>{{ end }}
+    {{ with $c.updated }}<span class="currently-updated">updated {{ . }}</span>{{ end }}
+</aside>
+{{ end }}
