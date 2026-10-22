@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
     <meta name="description"
-        content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }}">
+        content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | replaceRE `(?s)<aside class="margin-note">.*?</aside>` "" | plainify | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }}">
     <link rel="canonical" href="{{ .Permalink }}" />
     <link rel="preload" href="{{ "fonts/lora-400.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ "fonts/caveat-500.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>

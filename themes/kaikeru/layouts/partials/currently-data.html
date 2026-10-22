@@ -5,13 +5,27 @@
     {{- with .Err -}}
       {{- warnf "currently: Goodreads fetch failed: %s" . -}}
     {{- else with .Value -}}
-      {{- $feed := .Content | transform.Unmarshal -}}
-      {{- $items := $feed.channel.item -}}
-      {{- if reflect.IsMap $items -}}{{- $items = slice $items -}}{{- end -}}
-      {{- with index $items 0 -}}
-        {{- $title := .title | replaceRE `\s*\([^)]*\)\s*$` "" -}}
-        {{- $author := .author_name | replaceRE `\s+` " " -}}
-        {{- $reading = dict "title" $title "author" $author "link" (printf "https://www.goodreads.com/book/show/%v" .book_id) -}}
+      {{- with try (.Content | transform.Unmarshal) -}}
+        {{- with .Err -}}
+          {{- warnf "currently: Goodreads response was not valid XML: %s" . -}}
+        {{- else with .Value -}}
+          {{- with .channel -}}
+            {{- $items := .item -}}
+            {{- if reflect.IsMap $items -}}{{- $items = slice $items -}}{{- end -}}
+            {{- with $items -}}
+              {{- with index . 0 -}}
+                {{- $title := (.title | default "") | replaceRE `\s*\([^)]*\)\s*$` "" -}}
+                {{- $author := (.author_name | default "") | replaceRE `\s+` " " -}}
+                {{- $link := "" -}}
+                {{- with .book_id -}}{{- $link = printf "https://www.goodreads.com/book/show/%v" . -}}{{- end -}}
+                {{- if $title -}}{{- $reading = dict "title" $title "author" $author "link" $link -}}{{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if not $reading -}}
+        {{- warnf "currently: Goodreads feed had no usable book" -}}
       {{- end -}}
     {{- else -}}
       {{- warnf "currently: Goodreads returned no data" -}}

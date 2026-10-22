@@ -3,7 +3,7 @@
         {{ with .Params.image }}{{ $src := . }}{{ if hasPrefix $src "/" }}{{ $src = $src | relURL }}{{ end }}<span class="note-photo"><img src="{{ $src }}" alt="" loading="lazy"></span>{{ end }}
         <span class="note-meta"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2" }}</time> &middot; {{ .ReadingTime }} min</span>
         <span class="note-title">{{ .Title }}</span>
-        <span class="note-excerpt">{{ .Summary | plainify }}</span>
+        <span class="note-excerpt">{{ .Summary | replaceRE `(?s)<aside class="margin-note">.*?</aside>` "" | plainify }}</span>
         {{ with .Params.tags }}
         <span class="note-tags">{{ range $i, $tag := first 3 . }}<span>{{ if eq $i 0 }}~{{ end }}{{ $tag }}</span>{{ end }}</span>
         {{ end }}

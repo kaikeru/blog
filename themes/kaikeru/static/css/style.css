@@ -10,7 +10,7 @@
     --line: #e6dfd0;
     --rule: #e0d9c9;
     --ink: #2f2a25;
-    --accent: #43705f;
+    --accent: #3d6a59;
     --tape-sage: rgba(122, 168, 150, .55);
     --tape-sand: rgba(214, 170, 120, .55);
     --tape-rose: rgba(196, 120, 120, .45);
@@ -34,7 +34,7 @@ body {
 /* Soft warm vignette behind everything */
 body::before {
     content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 55%, rgba(120, 90, 50, .10) 100%);
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(120, 90, 50, .06) 100%);
 }
 
 a { color: var(--accent); }
@@ -128,7 +128,7 @@ a { color: var(--accent); }
 .month {
     font-family: var(--hand); font-weight: 500; font-size: 2.1rem; line-height: 1.2; color: var(--accent);
     margin: 0 0 1.6rem; padding-bottom: .55rem;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='8' viewBox='0 0 300 8' preserveAspectRatio='none'><path d='M0 4 C20 1 40 7 60 4 S100 1 120 4 S160 7 180 4 S220 1 240 4 S280 7 300 4' fill='none' stroke='%2343705f' stroke-opacity='.55' stroke-width='1.6' stroke-linecap='round'/></svg>") left bottom / 100% 8px no-repeat;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='8' viewBox='0 0 300 8' preserveAspectRatio='none'><path d='M0 4 C20 1 40 7 60 4 S100 1 120 4 S160 7 180 4 S220 1 240 4 S280 7 300 4' fill='none' stroke='%233d6a59' stroke-opacity='.55' stroke-width='1.6' stroke-linecap='round'/></svg>") left bottom / 100% 8px no-repeat;
 }
 .month-group { margin-bottom: 2.4rem; }
 .notes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 28px; }
