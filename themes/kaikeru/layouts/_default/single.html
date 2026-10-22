@@ -17,7 +17,7 @@
     </div>
     {{ if $isPost }}
     {{ with .Params.tags }}
-    <p class="tags">{{ range $i, $tag := . }}<a href="{{ printf "tags/%s/" ($tag | urlize) | relURL }}">{{ if eq $i 0 }}~{{ end }}{{ $tag }}</a>{{ end }}</p>
+    <p class="tags">tags ~ {{ range . }}<a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}</p>
     {{ end }}
     <nav class="prevnext" aria-label="Entries">
         {{ with .PrevInSection }}<a class="earlier" href="{{ .RelPermalink }}" rel="prev">&larr; {{ .Title }}</a>{{ end }}

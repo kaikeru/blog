@@ -5,7 +5,7 @@
         <span class="note-title">{{ .Title }}</span>
         <span class="note-excerpt">{{ .Summary | replaceRE `(?s)<aside class="margin-note">.*?</aside>` "" | plainify }}</span>
         {{ with .Params.tags }}
-        <span class="note-tags">{{ range $i, $tag := first 3 . }}<span>{{ if eq $i 0 }}~{{ end }}{{ $tag }}</span>{{ end }}</span>
+        <span class="note-tags">tags ~ {{ range first 3 . }}<span>{{ . }}</span>{{ end }}</span>
         {{ end }}
     </a>
 </li>
