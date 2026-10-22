@@ -242,3 +242,20 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
     .currently--foot { display: block; grid-column: 1; grid-row: 3; justify-self: center; width: min(100%, 320px); margin: 2rem 0 0; }
 }
 @media (prefers-reduced-motion: reduce) { .currently { transform: none; } }
+
+/* Margin notes: inline on narrow screens, hanging in the right-hand slot on wide ones */
+.margin-note {
+    position: relative; display: block; margin: 0 0 1.1rem; padding: .7rem .9rem;
+    background: #fbf1cf; border: 1px solid #ecdfa8; box-shadow: 1px 2px 4px rgba(0, 0, 0, .12);
+    font-family: var(--hand); font-size: 1.3rem; line-height: 1.3; color: #5d4528; transform: rotate(1.2deg);
+}
+.margin-note::before { content: ""; position: absolute; top: -8px; left: 1.4rem; width: 46px; height: 15px; background: var(--tape-sage); transform: rotate(-3deg); }
+.content::after { content: ""; display: block; clear: right; }
+@media (min-width: 1280px) {
+    /* page padding-right is 3.2rem; hang the note 1.6rem past the page edge */
+    .margin-note { float: right; clear: right; width: 190px; margin: 0 calc(-190px - 3.2rem - 1.6rem) 1rem 1rem; transform: rotate(2deg); }
+    .margin-note::before { display: none; }
+    .margin-note::after { content: ""; position: absolute; right: 100%; top: 50%; width: 1.6rem; border-top: 2px solid rgba(93, 69, 40, .45); }
+}
+@media (prefers-reduced-motion: reduce) { .margin-note { transform: none; } }
+@media print { .margin-note { float: none; width: auto; margin: 0 0 1rem; transform: none; } .margin-note::after { display: none; } }
