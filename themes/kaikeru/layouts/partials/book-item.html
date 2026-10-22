@@ -1,0 +1,5 @@
+<li class="book">
+    <span class="book-title">{{ if .link }}<a href="{{ .link }}" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</span>
+    {{ with .author }}<span class="book-author">by {{ . }}</span>{{ end }}
+    {{ with .rating }}{{ if gt . 0 }}<span class="book-rating" role="img" aria-label="{{ . }} out of 5 stars">{{ strings.Repeat . "★" }}{{ strings.Repeat (sub 5 .) "☆" }}</span>{{ end }}{{ end }}
+</li>

@@ -273,3 +273,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .has-photo .note-title { -webkit-line-clamp: 2; line-clamp: 2; }
 @media (prefers-reduced-motion: reduce) { .photo, .note-photo { transform: none; } }
 @media print { .photo, .note-photo { transform: none; box-shadow: none; } .photo::before { display: none; } }
+
+/* Reading list */
+.shelf h2 { margin-top: 1.6rem; }
+.books { list-style: none; padding: 0; margin: .4rem 0 0; }
+.book { padding: .2rem 0; }
+.book-author { color: #6b5d38; margin-left: .35rem; }
+.book-rating { color: var(--accent); margin-left: .5rem; letter-spacing: .05em; white-space: nowrap; }

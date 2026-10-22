@@ -1,0 +1,42 @@
+{{- /* Fetches a Goodreads shelf RSS feed; returns a slice of book dicts (empty on any failure). */ -}}
+{{- $books := slice -}}
+{{- with try (resources.GetRemote .) -}}
+  {{- with .Err -}}
+    {{- warnf "goodreads: fetch failed: %s" . -}}
+  {{- else with .Value -}}
+    {{- with try (.Content | transform.Unmarshal) -}}
+      {{- with .Err -}}
+        {{- warnf "goodreads: response was not valid XML: %s" . -}}
+      {{- else with .Value -}}
+        {{- with .channel -}}
+          {{- $items := .item -}}
+          {{- if reflect.IsMap $items -}}{{- $items = slice $items -}}{{- end -}}
+          {{- range $items -}}
+            {{- $title := (.title | default "") | replaceRE `\s*\([^)]*\)\s*$` "" -}}
+            {{- if $title -}}
+              {{- $link := "" -}}
+              {{- with .book_id -}}{{- $link = printf "https://www.goodreads.com/book/show/%v" . -}}{{- end -}}
+              {{- $readAt := printf "%v" (.user_read_at | default "") -}}
+              {{- $year := index (findRE `\d{4}` $readAt 1) 0 | default "" -}}
+              {{- $added := time.AsTime "1970-01-01" -}}
+              {{- with try (time.AsTime (printf "%v" (.user_date_added | default ""))) -}}
+                {{- with .Value -}}{{- $added = . -}}{{- end -}}
+              {{- end -}}
+              {{- $books = $books | append (dict
+                "title" $title
+                "author" ((.author_name | default "") | replaceRE `\s+` " ")
+                "link" $link
+                "image" (.book_medium_image_url | default "")
+                "rating" (int (.user_rating | default 0))
+                "year" $year
+                "added" $added) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- warnf "goodreads: returned no data" -}}
+  {{- end -}}
+{{- end -}}
+{{- return $books -}}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ $b := partialCached "books-data.html" site }}
+<article class="page">
+    <h1>{{ .Title }}</h1>
+    <div class="content">{{ .Content }}</div>
+    {{ with $b.current }}
+    <section class="shelf">
+        <h2>Currently reading</h2>
+        <ul class="books">
+            {{ range . }}{{ partial "book-item.html" . }}{{ end }}
+        </ul>
+    </section>
+    {{ end }}
+    {{ range $b.years }}
+    <section class="shelf">
+        <h2>{{ .year }}</h2>
+        <ul class="books">
+            {{ range .books }}{{ partial "book-item.html" . }}{{ end }}
+        </ul>
+    </section>
+    {{ end }}
+</article>
+{{ end }}

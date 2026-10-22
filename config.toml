@@ -20,6 +20,7 @@ capitalizeListTitles = false
   author = "Kyle Wagner"
   description = "Blog"
   goodreadsShelf = "https://www.goodreads.com/review/list_rss/38312672?shelf=currently-reading"
+  goodreadsReadShelf = "https://www.goodreads.com/review/list_rss/38312672?shelf=read&per_page=200"
 
 [[menu.main]]
   identifier = "entries"
@@ -34,9 +35,9 @@ capitalizeListTitles = false
   weight = 2
 
 [[menu.main]]
-  identifier = "reading-list"
-  url = "/reading-list/"
-  name = "Reading List"
+  identifier = "bookshelf"
+  url = "/bookshelf/"
+  name = "Bookshelf"
   weight = 3
 
 # Social links shown under the main menu.

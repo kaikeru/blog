@@ -1,0 +1,19 @@
+{{- /* Currently-reading (3 most recently added) and read books grouped by year, newest first; undated (abandoned) books are skipped. */ -}}
+{{- $current := slice -}}
+{{- with site.Params.goodreadsShelf -}}
+  {{- $current = first 3 (sort (partial "goodreads-shelf.html" .) "added" "desc") -}}
+{{- end -}}
+{{- $years := slice -}}
+{{- with site.Params.goodreadsReadShelf -}}
+  {{- $by := newScratch -}}
+  {{- range sort (partial "goodreads-shelf.html" .) "added" "desc" -}}
+    {{- if .year -}}{{- $by.Add .year (slice .) -}}{{- end -}}
+  {{- end -}}
+  {{- $map := $by.Values -}}
+  {{- $keys := slice -}}
+  {{- range $k, $_ := $map -}}{{- $keys = $keys | append $k -}}{{- end -}}
+  {{- range sort $keys "value" "desc" -}}
+    {{- $years = $years | append (dict "year" . "books" (index $map .)) -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "current" $current "years" $years) -}}
