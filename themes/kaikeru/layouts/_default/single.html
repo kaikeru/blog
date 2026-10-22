@@ -5,6 +5,13 @@
     <p class="meta"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006" }}</time> &middot; {{ .ReadingTime }} min read</p>
     {{ end }}
     <h1>{{ .Title }}</h1>
+    {{ with .Params.image }}
+    {{ $src := . }}{{ if hasPrefix $src "/" }}{{ $src = $src | relURL }}{{ end }}
+    <figure class="photo">
+        <img src="{{ $src }}" alt="{{ $.Params.image_alt }}" loading="lazy">
+        {{ with $.Params.image_alt }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+    {{ end }}
     <div class="content">
         {{ .Content }}
     </div>

@@ -1,5 +1,6 @@
-<li class="note">
+<li class="note{{ if .Params.image }} has-photo{{ end }}">
     <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+        {{ with .Params.image }}{{ $src := . }}{{ if hasPrefix $src "/" }}{{ $src = $src | relURL }}{{ end }}<span class="note-photo"><img src="{{ $src }}" alt="" loading="lazy"></span>{{ end }}
         <span class="note-meta"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2" }}</time> &middot; {{ .ReadingTime }} min</span>
         <span class="note-title">{{ .Title }}</span>
         <span class="note-excerpt">{{ .Summary | plainify }}</span>

@@ -259,3 +259,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 }
 @media (prefers-reduced-motion: reduce) { .margin-note { transform: none; } }
 @media print { .margin-note { float: none; width: auto; margin: 0 0 1rem; transform: none; } .margin-note::after { display: none; } }
+
+/* Taped photos */
+.photo {
+    position: relative; margin: 0 0 1.8rem; padding: 8px 8px 10px; background: #fff; border: 1px solid var(--line);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .25); transform: rotate(1.4deg);
+}
+.photo::before { content: ""; position: absolute; top: -10px; left: 42%; width: 70px; height: 20px; background: radial-gradient(rgba(255, 255, 255, .75) 1.8px, transparent 2.2px) 0 0 / 9px 9px, var(--tape-sand); transform: rotate(-4deg); }
+.photo img { display: block; width: 100%; height: auto; }
+.photo figcaption { font-family: var(--hand); font-size: 1.3rem; line-height: 1.3; color: #5d554d; padding: .4rem .2rem 0; }
+.note-photo { display: block; flex: none; margin: -.1rem .2rem .6rem; padding: 5px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .25); transform: rotate(1.4deg); }
+.note-photo img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.has-photo .note-title { -webkit-line-clamp: 2; line-clamp: 2; }
+@media (prefers-reduced-motion: reduce) { .photo, .note-photo { transform: none; } }
+@media print { .photo, .note-photo { transform: none; box-shadow: none; } .photo::before { display: none; } }
